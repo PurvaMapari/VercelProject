@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DigiDoc Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="dashboard-container">
+        <h2 id="dashboardHeading">Welcome</h2>
+        <p>Select a category to manage your documents</p>
+        <div class="card-grid">
+            <div class="card">Identity Documents</div>
+            <div class="card">Legal Documents</div>
+            <div class="card">Medical Certificates</div>
+            <div class="card">Educational Certificates</div>
+            <div class="card">Financial Documents</div>
+            <div class="card">Other Documents</div>
+        </div> <button class="logout-btn" onclick="window.location.href='index.html'">Logout</button>
+    </div>
+    <script>
+        // Get the logged-in username from localStorage
+        const loggedInUser = localStorage.getItem("loggedInUser");
+
+        // Update the heading dynamically
+        if (loggedInUser) {
+            document.getElementById("dashboardHeading").textContent =
+                "Welcome, " + loggedInUser;
+        } else {
+            // If no user found, redirect back to login
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+
+</html>
